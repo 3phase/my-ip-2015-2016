@@ -1,0 +1,14 @@
+package org.elsysbg.ip.java;
+
+public class HelloWorld {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		iak;lhfdsakjhfdsalkhs;lka
+		System.out.println("Hahahaha Kvo sta\n\nhahah");
+	}
+
+}

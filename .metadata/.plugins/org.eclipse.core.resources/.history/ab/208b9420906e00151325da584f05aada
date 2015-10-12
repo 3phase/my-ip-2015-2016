@@ -1,0 +1,22 @@
+package org.elsysbg.ip.java;
+
+public class Vars {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		const String a = "HXuYiU"; 	// local var
+		
+		
+		
+		
+		
+		
+//		a = "xyu";
+		
+		System.out.println(a+"\n");
+		
+	}
+
+}

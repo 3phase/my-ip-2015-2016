@@ -1,0 +1,11 @@
+package org.elsysbg.ip.java;
+
+public class EqualsExample {
+
+	public static void main(String[] args) {
+		Room room = new Room();
+		Room room2 = new Room();
+		setDimensions(room);
+	}
+	
+}

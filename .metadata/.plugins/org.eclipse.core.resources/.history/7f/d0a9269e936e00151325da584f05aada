@@ -1,0 +1,12 @@
+package org.elsysbg.ip.java;
+
+public class ClassExample {
+	
+	public static void main(String[] args) {		
+		// ctrl+2 + l - local var
+		final Room room = new Room();
+		
+		
+	}
+	
+}
