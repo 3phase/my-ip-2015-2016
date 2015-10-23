@@ -1,0 +1,14 @@
+package org.elsysbg.ip.java;
+
+import com.sun.java_cup.internal.runtime.Scanner;
+
+public class TextInfo {
+
+	public static void main(String[] args) {
+		System.out.println("Enter your name, please: ");
+		final Scanner in = new Scanner(System.in);
+		
+	}
+	
+	
+}
