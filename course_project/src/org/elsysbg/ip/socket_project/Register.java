@@ -15,8 +15,11 @@ public class Register {
 		if (loggedUsers.get(username) == null) {
 			create_user(username);
 		}
-		loggedUsers.get(username)[1] = 1;
-		this.attends(username);
+		if (loggedUsers.get(username)[1] != 1) {
+			loggedUsers.get(username)[1] = 1;
+			this.attends(username);
+		}
+		System.out.println("ok");
 	}
 	
 	public void request_logout(String username) {
@@ -27,7 +30,7 @@ public class Register {
 		} catch (Exception e) {
 			System.out.println("No such username.");
 		}
-		
+		System.out.println("ok");
 	}
 	
 	private void create_user(String username) {
@@ -41,11 +44,12 @@ public class Register {
 		}
 	}
 
-	public int get_attendances(String username_checker, String username_checked) {
+	public Integer get_attendances(String username_checker, String username_checked) {
 		if (check_if_logged(username_checker) == 0)
 			return -1;
 		try {
-			return loggedUsers.get(username_checked)[0];
+			Integer result = loggedUsers.get(username_checked)[0];
+			return result;
 		} catch(Exception e) {
 			System.out.println("Log with this username is unavilable");
 			return -1;
@@ -62,8 +66,7 @@ public class Register {
 	}
 	
 	private int check_if_logged(String username) {
-		if (loggedUsers.get(username)[1] != 1) {
-			System.out.println("You have to be logged in to view such information.");
+		if (loggedUsers.get(username)[1] == 0) {
 			return 0;
 		}
 		return 1;

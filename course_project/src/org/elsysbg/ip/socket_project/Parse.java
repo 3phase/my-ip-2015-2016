@@ -27,7 +27,7 @@ public class Parse {
 		funcMap.put("shutdown", () -> shutdown());
 	}
 	
-	public void parse(String s) {
+	public Map<String, String> parse(String s) {
 		this.stringToParse = s;
 		this.split();
 		try {
@@ -35,12 +35,15 @@ public class Parse {
 		} catch (Exception e) {
 			System.out.println("Make sure that you have passed a valid argument.");
 		}
+		return userMeta;
 	}
 	
 	private void split() {
 		String[] parts = stringToParse.split(":"); 
 		userMeta.put("username", parts[0]);
 		userMeta.put("command", parts[1]);
+		if (parts.length > 2 && parts[2] != null)
+			userMeta.put("checked_username", parts[2]);
 	}
 
 	private void shutdown() {
