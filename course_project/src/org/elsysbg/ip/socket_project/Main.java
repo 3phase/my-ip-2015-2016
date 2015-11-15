@@ -1,4 +1,4 @@
-package org.elsysbg.ip.test;
+package org.elsysbg.ip.socket_project;
 
 import java.util.*;
 
