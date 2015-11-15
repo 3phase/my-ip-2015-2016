@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Parse {
 
-	private String parsedString = "";
+	private String parsedString;
 	private Map<String, Runnable> funcMap = new HashMap<>();
 	
 	public static void main(String[] args) {
@@ -18,19 +18,19 @@ public class Parse {
 	}
 	
 	public Parse(String s) {
-		this.parsedString = s;
-	}
-	
-	public String parse() {
 		funcMap.put("login", () -> login());
 		funcMap.put("logout", () -> logout());
 		funcMap.put("info", () -> info());
 		funcMap.put("listavilable", () -> listavilable());
 		funcMap.put("shutdown", () -> shutdown());
+		this.parsedString = s;
+	}
+	
+	public String parse() {
 		try {
-			
+			funcMap.get(parsedString).run();
 		} catch (Exception e) {
-			System.out.println("Exception " + e + " caught.");
+			System.out.println("Make sure that you have passed a valid argument.");
 		}
 		return parsedString;
 	}
