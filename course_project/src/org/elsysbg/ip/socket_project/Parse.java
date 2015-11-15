@@ -6,33 +6,41 @@ import java.util.Scanner;
 
 public class Parse {
 
-	private String parsedString;
+	private String stringToParse;
+	private Map<String, String> userMeta = new HashMap<>();
 	private Map<String, Runnable> funcMap = new HashMap<>();
+	private Register studentRegister = new Register();
 	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		String st = in.nextLine();
-		Parse p = new Parse(st);
-		p.parse();
+		Parse p = new Parse();
+		p.parse(st);
 		in.close();
 	}
 	
-	public Parse(String s) {
+	public Parse() {
 		funcMap.put("login", () -> login());
 		funcMap.put("logout", () -> logout());
 		funcMap.put("info", () -> info());
 		funcMap.put("listavilable", () -> listavilable());
 		funcMap.put("shutdown", () -> shutdown());
-		this.parsedString = s;
 	}
 	
-	public String parse() {
+	public void parse(String s) {
+		this.stringToParse = s;
+		this.split();
 		try {
-			funcMap.get(parsedString).run();
+			funcMap.get(userMeta.get("command")).run();
 		} catch (Exception e) {
 			System.out.println("Make sure that you have passed a valid argument.");
 		}
-		return parsedString;
+	}
+	
+	private void split() {
+		String[] parts = stringToParse.split(":"); 
+		userMeta.put("username", parts[0]);
+		userMeta.put("command", parts[1]);
 	}
 
 	private void shutdown() {
@@ -46,17 +54,18 @@ public class Parse {
 
 
 	private void info() {
-		// TODO Auto-generated method stub
+		System.out.println(studentRegister.get_attendances(userMeta.get("username"), 
+				userMeta.get("checked_username")));
 	}
 
 
 	private void logout() {
-		// TODO Auto-generated method stub
+		studentRegister.request_logout(userMeta.get("username"));
 	}
 
 
 	private void login() {
-		
+		studentRegister.request_login(userMeta.get("username"));
 	}
 	
 }
