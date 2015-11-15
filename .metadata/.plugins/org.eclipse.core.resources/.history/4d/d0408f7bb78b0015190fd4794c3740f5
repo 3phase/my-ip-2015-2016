@@ -1,0 +1,9 @@
+package org.elsysbg.ip.socket_project;
+
+public class Parse {
+
+	public Parse(string s) {
+		
+	}
+	
+}
