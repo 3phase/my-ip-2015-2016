@@ -11,8 +11,8 @@ public class User {
 	private Integer currently_logged = 0;
 	private List<Interval> visit_interval = new ArrayList<Interval>();
 	
-	public User() {
-		// TODO Auto-generated constructor stub
+	public User(String user) {
+		this.username = user;
 	}
 	
 	public void new_user(String user) {
