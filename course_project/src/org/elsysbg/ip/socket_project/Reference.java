@@ -15,6 +15,7 @@ public class Reference {
 		funcMap.put("info", () -> info());
 		funcMap.put("listavilable", () -> listavilable());
 		funcMap.put("shutdown", () -> shutdown());
+		funcMap.put("listabsent", () -> listabsent());
 		
 	}
 	
@@ -50,6 +51,10 @@ public class Reference {
 
 	private void login() {
 		studentRegister.request_login(userMeta.get("username"));
+	}
+	
+	private void listabsent() {
+		studentRegister.get_absent();
 	}
 
 }

@@ -2,6 +2,7 @@ package org.elsysbg.ip.socket_project;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Register {
 
@@ -65,11 +66,23 @@ public class Register {
 		}
 	}
 	
-	private int check_if_logged(String username) {
+	private Integer check_if_logged(String username) {
 		if (loggedUsers.get(username)[1] == 0) {
 			return 0;
 		}
 		return 1;
+	}
+
+	public void get_absent() {
+		for (Entry<String, Integer[]> entry : loggedUsers.entrySet()) {
+			String key = entry.getKey();
+			Integer[] iterable = entry.getValue();
+			if (iterable[1] == 0) {
+				System.out.println("Absent: " + key);
+			}
+			
+		}
+		
 	}
 	
 }

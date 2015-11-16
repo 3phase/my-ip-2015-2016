@@ -2,7 +2,6 @@ package org.elsysbg.ip.socket_project;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Parse {
 
