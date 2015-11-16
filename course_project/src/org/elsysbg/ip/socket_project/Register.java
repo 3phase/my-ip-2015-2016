@@ -74,8 +74,10 @@ public class Register {
 	}
 
 	public void get_absent(String username) {
-		if (check_if_logged(username) == 0)
+		if (check_if_logged(username) == 0) {
+			System.out.println("error:notlogged");
 			return;
+		}
 		System.out.print("ok");
 		for (Entry<String, Integer[]> entry : loggedUsers.entrySet()) {
 			String key = entry.getKey();
@@ -85,6 +87,10 @@ public class Register {
 			}
 			
 		}
+		
+	}
+
+	public void get_info(String usernane, String username_checked) {
 		
 	}
 	
