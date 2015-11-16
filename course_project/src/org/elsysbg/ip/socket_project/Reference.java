@@ -54,7 +54,7 @@ public class Reference {
 	}
 	
 	private void listabsent() {
-		studentRegister.get_absent();
+		studentRegister.get_absent(userMeta.get("username"));
 	}
 
 }

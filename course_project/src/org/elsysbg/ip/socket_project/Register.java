@@ -73,12 +73,15 @@ public class Register {
 		return 1;
 	}
 
-	public void get_absent() {
+	public void get_absent(String username) {
+		if (check_if_logged(username) == 0)
+			return;
+		System.out.print("ok");
 		for (Entry<String, Integer[]> entry : loggedUsers.entrySet()) {
 			String key = entry.getKey();
 			Integer[] iterable = entry.getValue();
 			if (iterable[1] == 0) {
-				System.out.println("Absent: " + key);
+				System.out.print(":" + key);
 			}
 			
 		}
