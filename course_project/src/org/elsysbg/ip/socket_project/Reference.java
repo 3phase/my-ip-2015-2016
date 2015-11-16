@@ -13,7 +13,6 @@ public class Reference {
 		funcMap.put("login", () -> login());
 		funcMap.put("logout", () -> logout());
 		funcMap.put("info", () -> info());
-		funcMap.put("listavilable", () -> listavilable());
 		funcMap.put("shutdown", () -> shutdown());
 		funcMap.put("listabsent", () -> listabsent());
 		
@@ -31,12 +30,6 @@ public class Reference {
 	private void shutdown() {
 		// TODO Auto-generated method stub
 	}
-
-
-	private void listavilable() {
-		// TODO Auto-generated method stub
-	}
-
 
 	private void info() {
 //		System.out.println(studentRegister.get_attendances(userMeta.get("username"), userMeta.get("checked_username")));

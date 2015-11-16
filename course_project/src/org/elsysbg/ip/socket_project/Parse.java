@@ -20,8 +20,8 @@ public class Parse {
 	
 	private void split() {
 		String[] parts = stringToParse.split(":"); 
-		userMeta.put("username", parts[0]);
-		userMeta.put("command", parts[1]);
+		userMeta.put("command", parts[0]);
+		userMeta.put("username", parts[1]);
 		if (parts.length > 2 && parts[2] != null)
 			userMeta.put("checked_username", parts[2]);
 	}
