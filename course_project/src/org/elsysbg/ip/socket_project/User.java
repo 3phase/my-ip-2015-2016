@@ -41,7 +41,11 @@ public class User {
 	public void getAllIntervals() {
 		for (Interval interval : visit_interval) {
 			System.out.print(":"+interval.getFrom());
-			System.out.print(":"+interval.getTo());
+			try {
+				System.out.print(":"+interval.getTo());
+			} catch(Exception e) {
+				// Do nothing
+			}
 		}
 	}
 	

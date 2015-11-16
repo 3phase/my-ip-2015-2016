@@ -6,7 +6,6 @@ import java.util.Map.Entry;
 
 public class Register {
 
-//	private static Map<String, Integer[]> loggedUsers = new HashMap<>();
 	private static Map<String, User> users = new HashMap<>();
 	
 	public Register() {
@@ -73,7 +72,15 @@ public class Register {
 		
 	}
 
-	public void get_info(String usernane, String username_checked) {
+	public void get_info(String username, String username_checked) {
+		if (users.get(username).isLogged() == 0) {
+			System.out.println("error:notlogged");
+			return;
+		}
+		System.out.print("ok:" + username_checked + ":" + 
+				username + ":" + users.get(username_checked).returnEntriesCount());
+		users.get(username_checked).getAllIntervals();
+		System.out.println();
 		
 	}
 	
