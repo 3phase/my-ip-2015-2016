@@ -6,13 +6,15 @@ import java.util.List;
 
 public class User {
 	
+	private Interactive interactive;
 	private String username;
 	private Integer count_of_entries = 0;
 	private Integer currently_logged = 0;
 	private List<Interval> visit_interval = new ArrayList<Interval>();
 	
-	public User(String user) {
+	public User(String user, Interactive interactive) {
 		this.username = user;
+		this.interactive = interactive;
 	}
 	
 	public void new_user(String user) {
@@ -40,9 +42,9 @@ public class User {
 	
 	public void getAllIntervals() {
 		for (Interval interval : visit_interval) {
-			System.out.print(":"+interval.getFrom());
+			interactive.msgOut(":"+interval.getFrom());
 			try {
-				System.out.print(":"+interval.getTo());
+				interactive.msgOut(":"+interval.getTo());
 			} catch(Exception e) {
 				// Do nothing
 			}

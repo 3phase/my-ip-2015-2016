@@ -16,8 +16,8 @@ public class Interactive implements Runnable {
 	private PrintStream out;
 	
 	private Map<String, String> userMeta = new HashMap<>();
-	private Parse parser = new Parse();
-	private Reference r = new Reference();
+	private Parse parser = new Parse(this);
+	private Reference r = new Reference(this);
 	
 	public Interactive(Server server, Socket socket) {
 		this.socket = socket;
@@ -56,6 +56,8 @@ public class Interactive implements Runnable {
 		socket.close();
 	}
 	
-	
+	public void msgOut(String msg) {
+		out.print(msg);
+	}
 	
 }

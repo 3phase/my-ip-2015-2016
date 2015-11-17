@@ -1,21 +1,24 @@
 package org.elsysbg.ip.socket_project;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Reference {
 	
+	private Interactive interactive;
 	private Map<String, String> userMeta = new HashMap<>();
 	private Map<String, Runnable> funcMap = new HashMap<>();
-	private Register studentRegister = new Register();
+	private Register studentRegister;
 	
-	public Reference() {
+	public Reference(Interactive interactive) {
 		funcMap.put("login", () -> login());
 		funcMap.put("logout", () -> logout());
 		funcMap.put("info", () -> info());
 		funcMap.put("shutdown", () -> shutdown());
 		funcMap.put("listabsent", () -> listabsent());
-		
+		this.interactive = interactive;
+		this.studentRegister = new Register(interactive);
 	}
 	
 	public void make_reference(Map<String, String> user) {
@@ -23,12 +26,17 @@ public class Reference {
 		try {
 			funcMap.get(userMeta.get("command")).run();
 		} catch (Exception e) {
-			System.out.println("Make sure that you have passed a valid argument.");
+			interactive.msgOut("Make sure that you have passed a valid argument.\n");
 		}
 	}
 	
 	private void shutdown() {
-		// TODO Auto-generated method stub
+		try {
+			interactive.stopClient();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void info() {
