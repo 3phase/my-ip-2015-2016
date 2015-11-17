@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {	 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Map<String, String> userMeta = new HashMap<>();
 		Parse parser = new Parse();
 		Reference r = new Reference();

@@ -32,7 +32,6 @@ public class Reference {
 	}
 
 	private void info() {
-//		System.out.println(studentRegister.get_attendances(userMeta.get("username"), userMeta.get("checked_username")));
 		studentRegister.get_info(userMeta.get("username"), userMeta.get("checked_username"));
 	}
 
