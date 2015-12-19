@@ -1,0 +1,43 @@
+package org.elsysbg.ip.socket_project;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Register {
+
+	private static Map<String, Integer[]> loggedUsers = new HashMap<>();
+	
+	public Register() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void attends(String username) {
+		if (logged(username) != 1) {
+			System.out.println("You have to be logged in to review such information");
+		}
+		try {
+			++(loggedUsers.get(username)[0]);
+		} catch (Exception e) {
+			System.out.println("Log with this username is unavilable");
+			return;
+		}
+	}
+	
+	public int get_attendance(String username) throws Exception {
+		try {
+			return loggedUsers.get(username)[0];
+		} catch(Exception e) {
+			System.out.println("Log with this username is unavilable");
+			return -1;
+		}
+	}
+	
+	private int check_if_logged(String username) {
+		if (loggedUsers.get(username)[1] != 1) {
+			System.out.println("You have to be logged in to view such information.");
+			return 0;
+		}
+		return 1;
+	}
+	
+}

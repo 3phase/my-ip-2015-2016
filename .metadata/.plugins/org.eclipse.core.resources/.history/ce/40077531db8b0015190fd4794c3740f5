@@ -1,0 +1,43 @@
+package org.elsysbg.ip.socket_project;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Reference {
+	
+	private Map<String, Runnable> funcMap = new HashMap<>();
+	
+	public Reference() {
+		funcMap.put("login", () -> login());
+		funcMap.put("logout", () -> logout());
+		funcMap.put("info", () -> info());
+		funcMap.put("listavilable", () -> listavilable());
+		funcMap.put("shutdown", () -> shutdown());
+	}
+	
+	private void shutdown() {
+		// TODO Auto-generated method stub
+	}
+
+
+	private void listavilable() {
+		// TODO Auto-generated method stub
+	}
+
+
+	private void info() {
+		System.out.println(studentRegister.get_attendances(userMeta.get("username"), 
+				userMeta.get("checked_username")));
+	}
+
+
+	private void logout() {
+		studentRegister.request_logout(userMeta.get("username"));
+	}
+
+
+	private void login() {
+		studentRegister.request_login(userMeta.get("username"));
+	}
+
+}

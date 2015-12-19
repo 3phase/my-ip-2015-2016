@@ -1,0 +1,26 @@
+package org.elsysbg.ip.socket_project;
+
+import java.util.HashMap;
+
+public class Register {
+
+	private static HashMap<String, int[]> loggedUsers = new HashMap<String, int[]>();
+	
+	public Register() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void increment_attendance() {
+		
+	}
+	
+	public int get_attendance(String username) {
+		try {
+			loggedUsers.get(username);
+		} catch(Exception e) {
+			System.out.println("Log with this username is unavilable");
+			return 0;
+		}
+	}
+	
+}

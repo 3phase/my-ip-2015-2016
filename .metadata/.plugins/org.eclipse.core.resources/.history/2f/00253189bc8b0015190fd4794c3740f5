@@ -1,0 +1,64 @@
+package org.elsysbg.ip.socket_project;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Parse {
+
+	private String parsedString;
+	private Map<String, Runnable> funcMap = new HashMap<>();
+	
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		String st = in.nextLine();
+		System.out.println(st);
+		Parse p = new Parse(st);
+		p.parse();
+		in.close();
+	}
+	
+	public Parse(String s) {
+		funcMap.put("login", () -> login());
+		funcMap.put("logout", () -> logout());
+		funcMap.put("info", () -> info());
+		funcMap.put("listavilable", () -> listavilable());
+		funcMap.put("shutdown", () -> shutdown());
+		this.parsedString = s;
+	}
+	
+	public String parse() {
+		System.out.println("Debug " + this.parsedString);
+		try {
+			funcMap.get(parsedString);
+		} catch (Exception e) {
+			System.out.println("Make sure that you have passed a valid argument.");
+		}
+		return parsedString;
+	}
+
+	private void shutdown() {
+		System.out.println("Shutdown");
+	}
+
+
+	private void listavilable() {
+		// TODO Auto-generated method stub
+	}
+
+
+	private void info() {
+		// TODO Auto-generated method stub
+	}
+
+
+	private void logout() {
+		// TODO Auto-generated method stub
+	}
+
+
+	private void login() {
+		
+	}
+	
+}
