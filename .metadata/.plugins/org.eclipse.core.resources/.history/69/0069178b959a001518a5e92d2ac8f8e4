@@ -1,0 +1,12 @@
+$(document).ready(function() {
+	"use strict" 		// latest version, strict mode, i.e. predefined variables are required
+
+	function remove_class_name() {
+		$(".name-column").remove();
+	}
+	
+	$("table").append("<tr><td>3</td><td>Goshko bate</td></tr>");
+	$("table").remove();
+	
+	
+});
