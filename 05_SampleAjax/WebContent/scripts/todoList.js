@@ -28,11 +28,48 @@ $(document).ready(function() {
 	
 	var ENDPOINT = "http://localhost:3000/tasks";
 	
+	function updateTask(taskId, task) {
+		$.ajax(ENDPOINT + "/" + taskId, {
+			method: "PUT",
+			contentType: "application/json; charset=utf-8",
+			data: JSON.stringify({
+				title: task.title,
+				description: task.description
+			}),
+			dataType: "json"
+		}).then(function (response) {
+			reloadTasks();
+		});
+	}
+	
+	function addTask(task) {
+		var newTaskId;
+		var createPromise = $.ajax(ENDPOINT, {
+			method: "POST",
+			contentType: "application/json; charset=utf-8",
+			data: JSON.stringify(task),
+			dataType: "json"
+		}).then(function (response) {
+			console.log(response);
+			reloadTasks();
+			return response
+		});
+	}
+	
+	function deleteTask(taskId) {
+		$.ajax(ENDPOINT + "/" + taskId, {
+			method: "DELETE"
+		}).then(function(response) {
+			showPanel("emptyPanel");
+			reloadTasks();
+		});
+	}
 	
 	function showTaskView(task) {
 		$("#readPanel .task-title").text(task.title);
 		$("#readPanel .task-description").text(task.description);
-		showPanel("readPanel")
+		showPanel("readPanel");
+		$("#readPanel").attr("data-task-id", task.id);
 	}
 	
 	function getSingleTask(id) {
@@ -80,8 +117,35 @@ $(document).ready(function() {
 			getSingleTask(taskId).then(showTaskView);	// showTaskView -> receiving one arg from then
 			
 		});
+		$(".submit").click(function() {
+			var task = {
+				title: $("input.title").val(),
+				description: $("input.description").val()
+			};
+			addTask(task);
+		});
 		$(".task-action-cancel").click(function() {
 			showPanel("emptyPanel");
+		});
+		$("#readPanel .task-action-ok").click(function() {
+			var taskId = $(".panel").attr("data-task-id");
+			var panelCts = {
+				title: $(".form-group .task-title").html(),
+				description: $(".form-group .task-description").html()
+			};
+			showPanel("updatePanel");
+			$("#updatePanel").attr("data-task-id", taskId);
+
+			$("#updatePanel .task-action-ok").click(function() {
+				var updatedTask = {
+					title: $("#updatePanel input.form-control").val(),
+					description: $("#updatePanel textarea.form-control").val()	
+				};
+				updateTask($("#readPanel").attr("data-task-id"), updatedTask);
+			})
+		});
+		$(".task-action-remove").click(function() {
+			deleteTask($("#readPanel").attr("data-task-id"));
 		});
 	}
 	
