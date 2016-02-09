@@ -1,0 +1,90 @@
+$(document).ready(function() {
+	"use strict";
+	
+	// class hand-written
+	
+	var ENDPOINT = "http://localhost:3000/pois";
+	
+	$("#search")
+	
+	function getSingleTask(id) {
+		return $.ajax(ENDPOINT + "/" + id, {
+			method: "GET",
+			dataType: "json"
+		});
+	}
+	
+	function getAllTasks() {
+		return $.ajax(ENDPOINT, {
+			method: "GET",
+			dataType: "json"
+		})
+	}
+	
+	function showPanel(panelName) {
+		var ALL_PANELS = ["emptyPanel", "readPanel", "updatePanel", "createPanel"];
+		_.forEach(ALL_PANELS, function(nextValue) {
+				$("#" + nextValue).hide();
+		});
+		$("#" + panelName).show();
+	}
+	
+	function reloadTasks() {
+		getAllTasks().then(function(response) {
+			function addTaskToList(task) {
+				var newItem = $("<li />");
+				newItem.text(task.title);
+				newItem.addClass("list-group-item");
+				newItem.attr("data-task-id", task.id);
+				$("#tasksList").append(newItem);
+			}
+			
+			$("#tasksList").html("");
+			_.forEach(response, addTaskToList);
+			
+		});
+	}
+	
+	function attachHandlers() {
+		$(document).on("click", "#tasksList [data-task-id]", function() {
+			var taskId = $(this).attr("data-task-id");
+			
+			getSingleTask(taskId).then(showTaskView);	// showTaskView -> receiving one arg from then
+			
+		});
+		$(".submit").click(function() {
+			var task = {
+				title: $("input.title").val(),
+				description: $("input.description").val()
+			};
+			addTask(task);
+		});
+		$(".task-action-cancel").click(function() {
+			showPanel("emptyPanel");
+		});
+		$("#readPanel .task-action-ok").click(function() {
+			var taskId = $(".panel").attr("data-task-id");
+			var panelCts = {
+				title: $(".form-group .task-title").html(),
+				description: $(".form-group .task-description").html()
+			};
+			showPanel("updatePanel");
+			$("#updatePanel").attr("data-task-id", taskId);
+
+			$("#updatePanel .task-action-ok").click(function() {
+				var updatedTask = {
+					title: $("#updatePanel input.form-control").val(),
+					description: $("#updatePanel textarea.form-control").val()	
+				};
+				updateTask($("#readPanel").attr("data-task-id"), updatedTask);
+			})
+		});
+		$(".task-action-remove").click(function() {
+			deleteTask($("#readPanel").attr("data-task-id"));
+		});
+	}
+	
+	attachHandlers();
+	reloadTasks();
+	
+});

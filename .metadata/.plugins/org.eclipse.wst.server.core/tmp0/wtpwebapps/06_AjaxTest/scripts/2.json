@@ -1,0 +1,24 @@
+{
+  "pois": [
+    {
+      "id": 1,
+      "name": "Vitosha",
+      "type": "mountain"
+    },
+    {
+      "id": 2,
+      "name": "Pirin",
+      "type": "mountain"
+    },
+    {
+      "id": 3,
+      "name": "Sofia",
+      "type": "city"
+    },
+    {
+      "id": 4,
+      "name": "Plovdiv",
+      "type": "city"
+    }
+  ]
+}

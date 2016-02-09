@@ -1,0 +1,20 @@
+$(document).ready(function() {
+	"use strict";
+	
+	// class hand-written
+	
+	var ENDPOINT = "http://localhost:3000/pois";
+	
+	$("#search").on("click", function() {
+		var fieldVal = $("#filter").val();
+		getSingleTask(fieldVal);
+	});
+	
+	function getSingleTask(id) {
+		return $.ajax(ENDPOINT + "/" + id, {
+			method: "GET",
+			dataType: "json"
+		});
+	}
+	
+});

@@ -1,0 +1,37 @@
+$(document).ready(function() {
+	"use strict";
+	
+	// class hand-written
+	
+	var ENDPOINT = "http://localhost:3000/pois";
+	
+	function visualize(response) {
+		var table = $("#result");
+		table.html("<tbody></tbody>");
+		console.log("BRATO" + response);
+	}
+	
+	function getSingleTask(val) {
+		return $.ajax(ENDPOINT + "?name=" + val, {
+			method: "GET",
+			dataType: "json"
+		}).then(function(response){
+			var table = $("#result");
+//			table.html("<tbody>");
+			$.each(response, function(i, data) {
+				table.append("<tr id=\"result\"><td>" + data.type +"</td></tr>");
+				table.append("<tr id=\"result\"><td>" + data.name + "</td></tr>");
+			});
+//			table.html("</tbody>");
+			
+//			console.log(response.id);
+//			console.log("Brato " + $(response).name);
+		});
+	}
+	
+	$("#search").on("click", function() {
+		var fieldVal = $("#filter").val();
+		getSingleTask(fieldVal);
+	});
+	
+});
