@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
-<<<<<<< HEAD
-<entry loc="/usr/share/java/jdk1.8.0_66/jre" stamp="1444180873000"/>
-<entry loc="/usr/lib/jvm/java-8-oracle" stamp="1430978991000"/>
 <entry loc="/home/phased/bin/eclipse-installer" stamp="1446985576000"/>
-=======
-<entry loc="C:\Program Files\Java\jre1.8.0_66" stamp="1447403605360"/>
-<entry loc="/usr/lib/jvm/java-8-oracle" stamp="1430978991000"/>
-<entry loc="C:\Program Files\Java\jre1.8.0_20" stamp="1412414940896"/>
->>>>>>> 77ff06000a5648b6261b050e5347877d1cff379f
 </dirs>

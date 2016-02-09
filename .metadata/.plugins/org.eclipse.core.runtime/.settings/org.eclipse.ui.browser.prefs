@@ -1,2 +1,3 @@
+browsers=<?xml version\="1.0" encoding\="UTF-8"?>\n<web-browsers current\="0">\n<system/>\n<external location\="/usr/bin/firefox" name\="Firefox"/>\n</web-browsers>
 eclipse.preferences.version=1
-internalWebBrowserHistory=http\://localhost\:8080/04_SampleAjax/|*|http\://localhost\:8080/03_sample_jquery/scripts/sample.js|*|http\://bozhinov.com/|*|bozhinov.com|*|http\://localhost\:8080/03_sample_jquery/index.html|*|
+internalWebBrowserHistory=http\://localhost\:8080/06_AjaxTest/|*|http\://localhost\:8080/04_SampleAjax/|*|http\://localhost\:8080/03_sample_jquery/scripts/sample.js|*|http\://bozhinov.com/|*|bozhinov.com|*|http\://localhost\:8080/03_sample_jquery/index.html|*|

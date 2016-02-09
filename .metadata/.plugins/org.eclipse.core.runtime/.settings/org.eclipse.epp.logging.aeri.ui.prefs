@@ -1,7 +1,7 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=77ff06000a5648b6261b050e5347877d1cff379f
 action=IGNORE
 configured=true
 eclipse.preferences.version=1
-<<<<<<< HEAD
-rememberSendAction=NONE
-=======
->>>>>>> 77ff06000a5648b6261b050e5347877d1cff379f
+rememberSendAction=RESTART
