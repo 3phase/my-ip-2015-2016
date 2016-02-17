@@ -1,8 +1,13 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=77ff06000a5648b6261b050e5347877d1cff379f
 eclipse.preferences.version=1
-<<<<<<< HEAD
-org.eclipse.jdt.core.classpathVariable.JRE_LIB=/usr/share/java/jdk1.8.0_66/jre/lib/rt.jar
-org.eclipse.jdt.core.classpathVariable.JRE_SRC=/usr/share/java/jdk1.8.0_66/src.zip
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=/home/phased/bin/eclipse/java-mars2/eclipse/
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=/home/phased/bin/eclipse-installer/jre/lib/rt.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=
 org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=/home/phased/.p2/pool/plugins/org.junit_4.12.0.v201504281640/
+org.eclipse.jdt.core.classpathVariable.M2_REPO=/home/phased/.m2/repository
 org.eclipse.jdt.core.codeComplete.argumentPrefixes=
 org.eclipse.jdt.core.codeComplete.argumentSuffixes=
 org.eclipse.jdt.core.codeComplete.fieldPrefixes=
@@ -13,11 +18,6 @@ org.eclipse.jdt.core.codeComplete.staticFieldPrefixes=
 org.eclipse.jdt.core.codeComplete.staticFieldSuffixes=
 org.eclipse.jdt.core.codeComplete.staticFinalFieldPrefixes=
 org.eclipse.jdt.core.codeComplete.staticFinalFieldSuffixes=
-=======
-org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Program Files/Java/jre1.8.0_66/lib/rt.jar
-org.eclipse.jdt.core.classpathVariable.JRE_SRC=
-org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
->>>>>>> 77ff06000a5648b6261b050e5347877d1cff379f
 org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
