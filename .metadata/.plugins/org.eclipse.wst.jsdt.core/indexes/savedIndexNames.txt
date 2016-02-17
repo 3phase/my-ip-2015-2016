@@ -1,6 +1,0 @@
-INDEX VERSION 1.3+/home/phased/Desktop/school/ip/my-ip-2015-2016/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-3269105604.index
-3175993113.index
-4289278391.index
-4269217927.index
-1268297935.index

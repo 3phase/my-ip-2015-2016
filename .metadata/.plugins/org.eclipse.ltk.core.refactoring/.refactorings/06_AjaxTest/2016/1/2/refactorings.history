@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move &apos;1.html, 2.html, 3.html, 4.html&apos; to &apos;WebContent&apos;" description="Move 4 resources to &apos;WebContent&apos;" destination="WebContent" element1="WebContent/WEB-INF/1.html" element2="WebContent/WEB-INF/2.html" element3="WebContent/WEB-INF/3.html" element4="WebContent/WEB-INF/4.html" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="4" stamp="1452262988557" updateReferences="true"/>
-</session>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;04_SampleAjax/WebContent/scripts/toDo.js&apos; to &apos;todoList.js&apos;" description="Rename resource &apos;toDo.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/scripts/toDo.js" name="todoList.js" stamp="1450449475502" updateReferences="true"/>
-</session>

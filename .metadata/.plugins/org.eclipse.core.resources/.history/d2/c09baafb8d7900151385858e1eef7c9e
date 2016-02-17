@@ -1,9 +1,0 @@
-package org.elsysbg.ip.java;
-
-public class TextInfo {
-
-	public static void main(String[] args) {
-		final Scanner in = new Scanner(System.in);
-	}
-	
-}
