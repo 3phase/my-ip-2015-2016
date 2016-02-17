@@ -4,7 +4,7 @@ $(document).ready(function() {
 	// class hand-written
 	function written() {
 		$(".submit").on("click", function() {
-			var ENDPOINT = "http://localhost:3000/tasks";
+			var ENDPOINT = "http://localhost:8080/05_SampleBackend/api/v1/tasks";
 			var title = $(".title").val();
 			var descr = $(".description").val();
 			
@@ -26,7 +26,7 @@ $(document).ready(function() {
 	}
 	// end 
 	
-	var ENDPOINT = "http://localhost:3000/tasks";
+	var ENDPOINT = "http://localhost:8080/05_SampleBackend/api/v1/tasks";
 	
 	function updateTask(taskId, task) {
 		$.ajax(ENDPOINT + "/" + taskId, {

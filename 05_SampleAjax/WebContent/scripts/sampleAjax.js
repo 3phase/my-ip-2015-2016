@@ -2,7 +2,7 @@ $(document).ready(function() {
 	"use strict";
 	// CRUD Create Read Update Delete List
 	
-	var ENDPOINT = "http://localhost:3000/tasks";
+	var ENDPOINT = "http://localhost:8080/05_SampleBackend/api/v1/tasks";
 	
 	function taskEndpoint(taskId) {
 		return ENDPOINT + "/" + taskId;
@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 	// Error-handling
 	$(document).ajaxError(function() {
-		alert("Fuckin error " + arguments);
+		alert("Error " + arguments);
 	});
 	
 	// list all tasks
