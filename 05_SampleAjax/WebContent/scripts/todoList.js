@@ -6,10 +6,12 @@ $(document).ready(function() {
 		$(".submit").on("click", function() {
 			var ENDPOINT = "http://localhost:8080/05_SampleBackend/api/v1/tasks";
 			var title = $(".title").val();
+			var username = $(".username").val()
 			var descr = $(".description").val();
 			
 			var task = {
 				title: title,
+				username: username,
 				description: descr
 			};
 			
@@ -67,6 +69,7 @@ $(document).ready(function() {
 	
 	function showTaskView(task) {
 		$("#readPanel .task-title").text(task.title);
+		$("#readPanel .task-username").text(task.username);
 		$("#readPanel .task-description").text(task.description);
 		showPanel("readPanel");
 		$("#readPanel").attr("data-task-id", task.id);
@@ -117,32 +120,41 @@ $(document).ready(function() {
 			getSingleTask(taskId).then(showTaskView);	// showTaskView -> receiving one arg from then
 			
 		});
-		$(".submit").click(function() {
+		$("#createPanel button.btn.task-action-ok").click(function() {
 			var task = {
-				title: $("input.title").val(),
-				description: $("input.description").val()
+				title: $("#createPanel input[name='title']").val(),
+				username: $("#createPanel input[name='username']").val(),
+				description: $("#createPanel textarea[name='description']").val()
 			};
 			addTask(task);
 		});
 		$(".task-action-cancel").click(function() {
 			showPanel("emptyPanel");
 		});
+		$("#addTaskButton").click(function() {
+			showPanel("createPanel");
+		});
 		$("#readPanel .task-action-ok").click(function() {
-			var taskId = $(".panel").attr("data-task-id");
+			var taskId = $("#readPanel").attr("data-task-id");
 			var panelCts = {
 				title: $(".form-group .task-title").html(),
+				username: $(".form-group .task-username").html(),
 				description: $(".form-group .task-description").html()
 			};
 			showPanel("updatePanel");
 			$("#updatePanel").attr("data-task-id", taskId);
-
+			$("#updatePanel input.form-control[name='title']").attr("value", panelCts.title);
+			$("#updatePanel input.form-control[name='username']").attr("value", panelCts.username);
+			$("#updatePanel textarea.form-control[name='description']").val(panelCts.description);
+			
 			$("#updatePanel .task-action-ok").click(function() {
 				var updatedTask = {
 					title: $("#updatePanel input.form-control").val(),
+					username: $("#updatePanel input.form-control").val(),
 					description: $("#updatePanel textarea.form-control").val()	
 				};
-				updateTask($("#readPanel").attr("data-task-id"), updatedTask);
-			})
+				updateTask(taskId, updatedTask);
+			});
 		});
 		$(".task-action-remove").click(function() {
 			deleteTask($("#readPanel").attr("data-task-id"));

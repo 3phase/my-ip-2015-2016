@@ -7,6 +7,7 @@ public class Task {
 
 	private long id;
 	private String title;
+	private String username;
 	private String description;
 	
 	public long getId() {
@@ -20,6 +21,9 @@ public class Task {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getUsername() {
+		return username;
 	}
 	public String getDescription() {
 		return description;
