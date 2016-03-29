@@ -12,10 +12,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @Entity
 @NamedQueries({
-	@NamedQuery(name=Member.QUERY_ALL, query = "SELECT t FROM Task t")
+	@NamedQuery(name=Member.QUERY_ALL, query = "SELECT m FROM Member m"),
+	@NamedQuery(name=Member.QUERY_BY_USER, query = "SELECT m from Member m Where m.username=:username")
 })
 public class Member {
-	public static final String QUERY_ALL = "memberssAll";
+	public static final String QUERY_ALL = "membersAll";
+	public static final String QUERY_BY_USER = "memberByUsername";
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
